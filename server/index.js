@@ -10,7 +10,7 @@ import cors from "cors";
 const app= express()
 dotenv.config();
 const connect = ()=>{
-    mongoose.connect(process.env.MONGO).then(()=>{
+    mongoose.connect("mongodb+srv://ramneek:ramneek@cluster0.tjaoy4u.mongodb.net/?retryWrites=true&w=majority").then(()=>{
         console.log("DATABASE connected");
     })
     .catch((err) => {
