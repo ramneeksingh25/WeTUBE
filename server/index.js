@@ -19,7 +19,7 @@ const connect = ()=>{
 };
 
 app.use(cors({
-    origin:[],
+    origin:["https://we-tube-server.vercel.app"],
     methods:["POST","GET"],
     credentials:true
 }))
