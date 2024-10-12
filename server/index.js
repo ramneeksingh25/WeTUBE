@@ -12,7 +12,7 @@ app.use(cors())
 
 dotenv.config();
 const connect = ()=>{
-    mongoose.connect(process.env.MONGO).then(()=>{
+    mongoose.connect("mongodb+srv://ramneek:ramneek@cluster0.tjaoy4u.mongodb.net/?retryWrites=true&w=majority").then(()=>{
         console.log("DATABASE connected");
     })
     .catch((err) => {
@@ -21,7 +21,7 @@ const connect = ()=>{
     })
 };
 // app.use(cors({
-//     origin:["https://new-tube-server.vercel.app/"],
+//     origin:["https://new-tube-client.vercel.app/"],
 //     methods:["POST","GET"],
 //     credentials:true
 // }))
