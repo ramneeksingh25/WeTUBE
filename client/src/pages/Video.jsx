@@ -127,9 +127,9 @@ const Video = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoRes = await axios.get(`https://we-tube-server.vercel.app/videos/find/${path}`);
+        const videoRes = await axios.get(`https://new-tube-server.vercel.app/videos/find/${path}`);
         const channelRes = await axios.get(
-          `https://we-tube-server.vercel.app/users/find/${videoRes.data.userId}`
+          `https://new-tube-server.vercel.app/users/find/${videoRes.data.userId}`
         );
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
@@ -139,18 +139,18 @@ const Video = () => {
   }, [path, dispatch]);
 
   const handleLike = async () => {
-    await axios.put(`https://we-tube-server.vercel.app/users/like/${currentVideo._id}`);
+    await axios.put(`https://new-tube-server.vercel.app/users/like/${currentVideo._id}`);
     dispatch(like(currentUser._id));
   };
   const handleDislike = async () => {
-    await axios.put(`https://we-tube-server.vercel.app/users/dislike/${currentVideo._id}`);
+    await axios.put(`https://new-tube-server.vercel.app/users/dislike/${currentVideo._id}`);
     dispatch(dislike(currentUser._id));
   };
 
   const handleSub = async () => {
     currentUser.subscribedUsers.includes(channel._id)
-      ? await axios.put(`https://we-tube-server.vercel.app/users/unsub/${channel._id}`)
-      : await axios.put(`https://we-tube-server.vercel.app/users/sub/${channel._id}`);
+      ? await axios.put(`https://new-tube-server.vercel.app/users/unsub/${channel._id}`)
+      : await axios.put(`https://new-tube-server.vercel.app/users/sub/${channel._id}`);
     dispatch(subscription(channel._id));
   };
 
